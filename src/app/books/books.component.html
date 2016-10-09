@@ -1,0 +1,12 @@
+<div class="ui container">
+  <div class="ui celled grid">
+    <div class="row">
+      <div class="four wide column">
+        <bs-book-list (bookSelected)="selectedBook = $event"></bs-book-list>
+      </div>
+      <div class="twelve wide column">
+        <bs-book-detail [selectedBook]="selectedBook"></bs-book-detail>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="ui internally celled grid">
+  <div class="row">
+    <div class="sixteen wide column">
+      <button class="ui button">
+        New Book
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="ui relaxed divided list">
+      <bs-book-item [book]="book" (click)="onSelected(book)"></bs-book-item>
+    </div>
+  </div>
+</div>
