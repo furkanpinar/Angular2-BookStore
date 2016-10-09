@@ -4,7 +4,13 @@
       <div class="sixteen wide column">
         <bs-shopping-list-add></bs-shopping-list-add>
         <div class="ui relaxed divided list">
-
+          <template *ngFor="let item of items">
+            <div class="item" style="cursor:pointer;">
+              <div class="content">
+                <a class="header"><h4>{{book.name}}</h4></a>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </div>
