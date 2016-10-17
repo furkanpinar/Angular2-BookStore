@@ -7,6 +7,6 @@ import {Book} from "../book";
 })
 export class BookItemComponent {
   @Input() book: Book;
-  bookId : number;
+  @Input() bookId : number;
 
 }

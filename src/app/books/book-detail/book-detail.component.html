@@ -1,5 +1,10 @@
 <div class="ui form">
   <div class="field">
+    <button class="ui button olive" (click)="onAddToShoppingList()">To Shopping List</button>
+    <button class="ui button orange" (click)="onEdit()">Edit</button>
+    <button class="ui button red" (click)="onDelete()">Delete</button>
+  </div>
+  <div class="field">
     <label>Name</label>
     <input type="text" name="name" placeholder="Name" value="{{selectedBook?.name}}">
   </div>
@@ -7,7 +12,11 @@
     <label>Description</label>
     <input type="text" name="description" placeholder="Description" value="{{selectedBook?.description}}">
   </div>
-  <button class="ui button olive">To Shopping List</button>
-  <button class="ui button orange">Edit</button>
-  <button class="ui button red">Delete</button>
+  <div class="field">
+    <label>Image</label>
+    <img class="ui medium bordered centered image" src="{{selectedBook?.imagePath}}">
+  </div>
+  <div class="field">
+    <button class="ui button grey mini" style="margin:2px;" *ngFor="let item of selectedBook?.ingredients" (click)="onSelectItem(item)">{{item.name}} ({{item.amount}})</button>
+  </div>
 </div>

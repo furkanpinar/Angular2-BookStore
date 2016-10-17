@@ -5,7 +5,8 @@
         <bs-book-list (bookSelected)="selectedBook = $event"></bs-book-list>
       </div>
       <div class="twelve wide column">
-        <bs-book-detail [selectedBook]="selectedBook"></bs-book-detail>
+        <router-outlet></router-outlet>
+        <!--bs-book-detail [selectedBook]="selectedBook"></bs-book-detail-->
       </div>
     </div>
   </div>

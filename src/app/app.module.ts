@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BookStore } from './book-store.component';
@@ -11,6 +11,9 @@ import { BookItemComponent } from './books/book-list/book-item.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
+import {AppRouting} from "./app.routing";
+import { BookEditComponent } from './books/book-edit/book-edit.component';
+import { BookStartComponent } from './books/book-start.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,16 @@ import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.comp
     BookItemComponent,
     BookDetailComponent,
     ShoppingListComponent,
-    ShoppingListAddComponent
+    ShoppingListAddComponent,
+    BookEditComponent,
+    BookStartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRouting,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [BookStore]

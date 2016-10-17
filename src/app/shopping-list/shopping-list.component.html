@@ -2,16 +2,8 @@
   <div class="ui celled grid">
     <div class="row">
       <div class="sixteen wide column">
-        <bs-shopping-list-add></bs-shopping-list-add>
-        <div class="ui relaxed divided list">
-          <template *ngFor="let item of items">
-            <div class="item" style="cursor:pointer;">
-              <div class="content">
-                <a class="header"><h4>{{book.name}}</h4></a>
-              </div>
-            </div>
-          </template>
-        </div>
+        <bs-shopping-list-add [item]="selectedItem" (cleared)="onCleared()"></bs-shopping-list-add>
+        <button class="ui button grey mini" style="margin:2px;" *ngFor="let item of items" (click)="onSelectItem(item)">{{item.name}} ({{item.amount}})</button>
       </div>
     </div>
   </div>

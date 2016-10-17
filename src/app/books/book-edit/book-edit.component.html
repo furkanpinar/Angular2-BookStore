@@ -1,0 +1,73 @@
+<div class="ui form">
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <button class="ui button olive" [disabled]="!bookForm.valid">Save</button>
+      <button class="ui button red" (click)="onCancel()">Cancel</button>
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        formControlName="name"
+      >
+    </div>
+    <div class="field">
+      <label>Content</label>
+      <textarea
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="field">
+      <label>Image URL</label>
+      <input
+        type="text"
+        name="imagePath"
+        placeholder="ImagePath"
+        formControlName="imagePath"
+        #imageUrl>
+    </div>
+    <div class="field">
+      <label>Image</label>
+      <img class="ui medium centered image" [src]="imageUrl.value">
+    </div>
+    <div class="field">
+      <div class="ui relaxed divided list">
+        <div class="item" formArrayName="ingredients"
+             *ngFor="let ingredient of bookForm.controls['ingredients'].controls; let i = index;">
+          <div class="three fields" formGroupName="{{i}}">
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Name"
+                formControlName="name">
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Amount"
+                formControlName="amount">
+            </div>
+            <button class="ui button red" (click)="onRemoveItem(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui relaxed divided list">
+        <div class="item">
+          <div class="three fields">
+            <div class="field">
+              <input type="text" placeholder="Name" #itemName>
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Amount" #itemAmount>
+            </div>
+            <button class="ui button blue" type="button" (click)="onAddItem(itemName.value, itemAmount.value)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
